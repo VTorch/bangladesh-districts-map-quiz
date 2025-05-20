@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <title>Bangladesh Districts Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 
-  <!-- Your custom CSS -->
+  <!-- Your CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Loading bar -->
+  <div id="loading-container">
+    <div id="loading-bar"></div>
+  </div>
+
   <!-- Status Bar -->
   <div id="statusbar">
     <span id="left">Left: …</span>
@@ -29,10 +31,12 @@
   <!-- Cursor Tooltip -->
   <div id="cursor-tooltip"></div>
 
+  <!-- Completion Overlay -->
+  <div id="completion-overlay"></div>
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-
-  <!-- Your custom JS -->
+  <!-- Your JS -->
   <script src="js/script.js"></script>
 </body>
 </html>
