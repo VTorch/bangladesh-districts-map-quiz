@@ -1,0 +1,64 @@
+/* full-viewport map */
+body, html {
+  margin: 0; padding: 0; height: 100%;
+}
+#map {
+  width: 800px;
+  height: 600px;
+  margin: 2em auto;
+  background: #ADE0E8;  /* pale‐cyan box */
+  border: 2px solid #444;
+}
+
+
+
+/* semi-transparent top bar */
+#statusbar {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.7);
+  font: 16px sans-serif;
+  display: flex;
+  gap: 2em;
+  z-index: 1000;
+}
+
+/* hide default cursor, we'll show our own */
+body { cursor: none; }
+
+/* our custom cursor tooltip */
+#cursor-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 6px;
+  font: 14px sans-serif;
+  border-radius: 3px;
+  white-space: nowrap;
+  z-index: 1001;
+}
+
+/* wrong‐click tooltip on polygons */
+.leaflet-tooltip.wrong-tooltip {
+  background: rgba(255,0,0,0.8);
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 2px 4px;
+
+  /* start hidden for fade in */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.leaflet-tooltip.revealed-tooltip {
+  background: rgba(144,238,144,0.9); /* lightgreen */
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 2px 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}

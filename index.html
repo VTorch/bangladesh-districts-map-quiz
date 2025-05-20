@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bangladesh Districts Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  />
+
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Status Bar -->
+  <div id="statusbar">
+    <span id="left">Left: …</span>
+    <span id="accuracy">Accuracy: …</span>
+    <span id="timer">Time: …</span>
+    <span id="prompt">Click on: …</span>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Cursor Tooltip -->
+  <div id="cursor-tooltip"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
