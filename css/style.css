@@ -1,44 +1,115 @@
 /* Reset & full height */
-html, body { margin:0; padding:0; height:100%; }
+html, body { margin: 0; padding: 0; height: 100%; }
+
+/* Map + UI wrapper */
+.map-wrapper {
+  position: relative;
+  width: 90vw;
+  max-width: 800px;
+  aspect-ratio: 4 / 3;
+  margin: 6em auto;
+}
+
+/* Map fills the wrapper */
+#map {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ADE0E8;
+  border: 2px solid #444;
+}
 
 /* Loading bar */
 #loading-container {
-  position: absolute; top:0; left:0;
-  width:100%; height:4px;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
   background: rgba(0,0,0,0.1);
-  z-index:2000;
-  overflow:hidden;
+  z-index: 2000;
+  overflow: hidden;
 }
 #loading-bar {
-  width:0%; height:100%;
-  background:#1a9641;
+  width: 0%; height: 100%;
+  background: #1a9641;
   transition: width 0.2s ease-out;
 }
 
 /* Status bar */
 #statusbar {
   position: absolute;
-  top: 4px; left: 50%;
-  transform: translateX(-50%);
+  top: 4px; left: 0;
+  width: 100%;
   background: rgba(255,255,255,0.7);
-  padding: 8px 16px;
+  padding: 8px 4px;
   font: 16px sans-serif;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
+  justify-content: space-around;
+  gap: 0.5em;
+  box-sizing: border-box;
   z-index: 1000;
-  max-width: 90vw;
+  max-width: 100%;
 }
-
-/* Make each piece take at least some space and center its text */
 #statusbar span {
   flex: 1 1 auto;
   text-align: center;
   min-width: 4em;
 }
 
-/* On very narrow screens, stack vertically and shrink font */
+/* Cursor tooltip */
+#cursor-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 6px;
+  font: 14px sans-serif;
+  border-radius: 3px;
+  white-space: nowrap;
+  z-index: 1001;
+}
+
+/* Wrong-click tooltip */
+.leaflet-tooltip.wrong-tooltip {
+  background: rgba(255,0,0,0.8);
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 2px 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Revealed-click tooltip */
+.leaflet-tooltip.revealed-tooltip {
+  background: rgba(144,238,144,0.9);
+  color: black;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 2px 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Completion overlay */
+#completion-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,0.95);
+  padding: 20px 30px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  color: #333;
+  z-index: 1002;
+  display: none;
+  max-width: 90vw;
+  word-wrap: break-word;
+}
+
+/* Responsive tweaks */
 @media (max-width: 600px) {
   #statusbar {
     flex-direction: column;
@@ -47,50 +118,4 @@ html, body { margin:0; padding:0; height:100%; }
     font-size: 14px;
     padding: 6px 12px;
   }
-}
-
-/* Map box—responsive */
-#map {
-  width: 90vw;            /* fill most of viewport width */
-  max-width: 800px;       /* but never exceed 800px */
-  aspect-ratio: 4 / 3;    /* maintain 4:3 ratio */
-  margin: 6em auto;
-  background: #ADE0E8;
-  border: 2px solid #444;
-}
-
-/* Cursor tooltip */
-#cursor-tooltip {
-  position:absolute; pointer-events:none;
-  background:rgba(255,255,255,0.9);
-  padding:2px 6px; font:14px sans-serif;
-  border-radius:3px; white-space:nowrap;
-  z-index:1001;
-}
-
-/* Wrong-click tooltip */
-.leaflet-tooltip.wrong-tooltip {
-  background:rgba(255,0,0,0.8); color:white;
-  font-weight:bold; border-radius:3px; padding:2px 4px;
-  opacity:0; transition:opacity 0.2s ease-in-out;
-}
-
-/* Revealed-click tooltip */
-.leaflet-tooltip.revealed-tooltip {
-  background:rgba(144,238,144,0.9); color:black;
-  font-weight:bold; border-radius:3px; padding:2px 4px;
-  opacity:0; transition:opacity 0.2s ease-in-out;
-}
-
-/* Completion overlay */
-#completion-overlay {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,0.95);
-  padding:20px 30px; font-size:2em;
-  font-weight:bold; text-align:center;
-  border-radius:8px; color:#333;
-  z-index:1002; display:none;
-  max-width: 90vw;        /* never overflow viewport */
-  word-wrap: break-word;  /* wrap long text */
 }
