@@ -6,37 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  />
 
-  <!-- Your CSS -->
+  <!-- Your custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Loading bar -->
-  <div id="loading-container">
-    <div id="loading-bar"></div>
+  <div class="map-wrapper">
+    <!-- Loading bar -->
+    <div id="loading-container">
+      <div id="loading-bar"></div>
+    </div>
+
+    <!-- Status Bar -->
+    <div id="statusbar">
+      <span id="left">Left: …</span>
+      <span id="accuracy">Accuracy: …</span>
+      <span id="timer">Time: …</span>
+      <span id="prompt">Click on: …</span>
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Cursor Tooltip -->
+    <div id="cursor-tooltip"></div>
+
+    <!-- Completion Overlay -->
+    <div id="completion-overlay"></div>
   </div>
-
-  <!-- Status Bar -->
-  <div id="statusbar">
-    <span id="left">Left: …</span>
-    <span id="accuracy">Accuracy: …</span>
-    <span id="timer">Time: …</span>
-    <span id="prompt">Click on: …</span>
-  </div>
-
-  <!-- Map Container -->
-  <div id="map"></div>
-
-  <!-- Cursor Tooltip -->
-  <div id="cursor-tooltip"></div>
-
-  <!-- Completion Overlay -->
-  <div id="completion-overlay"></div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <!-- Your JS -->
+  <!-- Your custom JS -->
   <script src="js/script.js"></script>
 </body>
 </html>
