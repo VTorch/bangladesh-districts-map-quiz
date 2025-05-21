@@ -17,14 +17,36 @@ html, body { margin:0; padding:0; height:100%; }
 
 /* Status bar */
 #statusbar {
-  position:absolute; top:4px; left:50%;
-  transform:translateX(-50%);
-  background:rgba(255,255,255,0.7);
-  padding:8px 16px;
-  font:16px sans-serif;
-  display:flex; flex-wrap:wrap; gap:1em;
-  z-index:1000;
-  max-width:90vw;
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.7);
+  padding: 8px 16px;
+  font: 16px sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  z-index: 1000;
+  max-width: 90vw;
+}
+
+/* Make each piece take at least some space and center its text */
+#statusbar span {
+  flex: 1 1 auto;
+  text-align: center;
+  min-width: 4em;
+}
+
+/* On very narrow screens, stack vertically and shrink font */
+@media (max-width: 600px) {
+  #statusbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 }
 
 /* Map box—responsive */
