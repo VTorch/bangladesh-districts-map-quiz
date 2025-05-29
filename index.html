@@ -2,37 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Bangladesh Districts Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Quiz Launcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Leaflet CSS -->
+  <!-- Google Font -->
   <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
     rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
   />
 
-  <!-- Your custom CSS -->
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Status Bar -->
-  <div id="statusbar">
-    <span id="left">Left: …</span>
-    <span id="accuracy">Accuracy: …</span>
-    <span id="timer">Time: …</span>
-    <span id="prompt">Click on: …</span>
+  <div class="menu">
+    <h1>🗺️ Map Quiz</h1>
+    <div class="menu-options">
+      <a href="bangladesh.html" class="menu-option">
+        Bangladesh Districts Quiz
+      </a>
+      <a href="dhaka.html" class="menu-option">
+        Dhaka Subdistricts Quiz
+      <a href="chittagong.html" class="menu-option">
+        Chittagong Subdistricts Quiz
+      </a>
+      </a>
+    </div>
   </div>
-
-  <!-- Map Container -->
-  <div id="map"></div>
-
-  <!-- Cursor Tooltip -->
-  <div id="cursor-tooltip"></div>
-
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-
-  <!-- Your custom JS -->
-  <script src="js/script.js"></script>
 </body>
 </html>

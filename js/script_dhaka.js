@@ -73,7 +73,7 @@ function blinkRed(layer) {
 function handleClick(feature, layer) {
   // already answered? show green tooltip
   if (layer.answered) {
-    layer.bindTooltip(feature.properties.ADM2_EN, {
+    layer.bindTooltip(feature.properties.ADM3_EN, {
       permanent: true, direction: "center", className: "revealed-tooltip"
     }).openTooltip();
     const el = layer.getTooltip().getElement();
@@ -90,7 +90,7 @@ function handleClick(feature, layer) {
 
   attempts++; updateStatus();
 
-  if (feature.properties.ADM2_EN === currentTarget) {
+  if (feature.properties.ADM3_EN === currentTarget) {
     // correct!
     layer.setStyle(styleForCorrect(tries));
     layer.answered = true;
@@ -99,7 +99,7 @@ function handleClick(feature, layer) {
 
   } else {
     // wrong: fade red tooltip
-    layer.bindTooltip(feature.properties.ADM2_EN, {
+    layer.bindTooltip(feature.properties.ADM3_EN, {
       permanent: true, direction: "center", className: "wrong-tooltip"
     }).openTooltip();
     const el = layer.getTooltip().getElement();
@@ -175,16 +175,16 @@ wrapper.addEventListener("mousemove", e => {
 });
 
 // load GeoJSON and start quiz
-fetch("data/bangladesh_districts.geojson")
+fetch("data/dhaka_thanas.geojson")
   .then(r => r.json())
   .then(geojson => {
-    geojson.features.forEach(f => names.push(f.properties.ADM2_EN));
+    geojson.features.forEach(f => names.push(f.properties.ADM3_EN));
     remaining = names.slice();
 
     districtLayer = L.geoJSON(geojson, {
       style: styleDefault,
       onEachFeature: (f,l) => {
-        const name = f.properties.ADM2_EN;
+        const name = f.properties.ADM3_EN;
         featuresByName[name] = l;
         l.answered = false;
         l.on("click", () => handleClick(f,l));
